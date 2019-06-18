@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 	<meta name="generator" content="Jekyll v3.8.5">
-	<title>Mujeeb Ur Rehman</title>
+	<title>{{ blog.title }}</title>
 
 	<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -45,45 +45,21 @@
 				<div class="navbar-nav ml-auto">
 					<a class="nav-item nav-link" href="https://www.linkedin.com/in/mujeeb-ur-rehman-0b15b5117/">LinkedIn</a>
 					<a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-					<a class="nav-item nav-link" href="{% url 'blogs' %}">Blog</a>
+					<a class="nav-item nav-link active" href="{% url 'blogs' %}">Blog</a>
 				</div>
 			</div>
 		</nav>
 	</header>
 
 	<main role="main">
-
-		<section class="jumbotron text-center">
-			<div class="container">
-				<h1 class="jumbotron-heading">Hi, I'm Mujeeb.</h1>
-				<p class="lead text-muted">Seeking a role that provides me an opportunity to enhance my skills and abilities in the ﬁeld of computer science. I want to utilize my current skills in data science and python development.</p>
-				<p>
-					<a href="mailto:mrehman.bscs15seecs@seecs.edu.pk" class="btn btn-primary my-2">Contact</a>
-				</p>
-				<img src="{% static 'me.jpg' %}" height="300" width="300">
-			</div>
-		</section>
-
-		<div class="album py-5 bg-light">
-			<div class="container">
-
-				<div class="row">
-
-					{% for job in jobs.all %}
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<img class="card-image-top" src="{{job.image.url}}" width="100%" height="225">
-							<div class="card-body">
-								<p class="card-text">{{ job.summary }}</p>
-							</div>
-						</div>
-					</div>
-					{% endfor %}
-
-				</div>
-			</div>
+		<div class="container">
+			<h1 class="text-center pt-3">{{ blog.title }}</h1>
+			<p class="text-center">{{ blog.pub_date}}</p>
+			<img class="img-fluid" src="{{blog.image.url}}">
+			<br>
+			<br>
+			<p>{{ blog.body }}</p>
 		</div>
-
 	</main>
 
 	<footer class="text-muted">
